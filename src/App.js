@@ -6,9 +6,20 @@ function App() {
 //State del presupuesto
 const [budget, saveBudget] = useState(0);
 //State del restante del presupuesto
-const [restBudget, saveRest]= useState(0)
+const [restBudget, saveRest]= useState(0);
 //State del componente que se va mostrar
-const[toshowquetion, modifyToshowquetion] = useState(true)
+const[toshowquetion, modifyToshowquetion] = useState(true);
+//State de gastos
+const [egress, setEgress] = useState([]);
+
+//funcion para agregar nuevo gasto al array
+const addNewEgress = egres=>{
+  setEgress([
+    ...egress,
+    egres
+
+  ])
+}
 
   return (
     <div className="container">
@@ -29,7 +40,9 @@ const[toshowquetion, modifyToshowquetion] = useState(true)
               (
                 <div className="row">
                   <div className="one-half column">
-                    <Formulario/>
+                    <Formulario
+                    addNewEgress={addNewEgress}
+                    />
                   </div>
                   <div className="one-half column">
                     2
