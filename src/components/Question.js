@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react'
 import Error from './Error'
 
-const Question = ({saveBudget, saveRest}) => {
+const Question = ({saveBudget, saveRest, modifyToshowquetion}) => {
 
     //definiendo STATE del presupuesto
     const [ quantity, saveQuantity ]= useState(0)
@@ -25,6 +25,7 @@ const Question = ({saveBudget, saveRest}) => {
     saveError(false);
     saveBudget(quantity);
     saveRest(quantity);
+    modifyToshowquetion(false)
 
     }
 

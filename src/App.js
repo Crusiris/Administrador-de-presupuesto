@@ -7,6 +7,8 @@ function App() {
 const [budget, saveBudget] = useState(0);
 //State del restante del presupuesto
 const [restBudget, saveRest]= useState(0)
+//State del componente que se va mostrar
+const[toshowquetion, modifyToshowquetion] = useState(true)
 
   return (
     <div className="container">
@@ -14,22 +16,30 @@ const [restBudget, saveRest]= useState(0)
           <h1>Gasto semanal</h1>
 
             <div className="contenido-principal contenido">
-              <Question
-              saveBudget= {saveBudget}
-              saveRest= {saveRest}
-              />
-
-            <div className="row">
-                <div className="one-half column">
-                  <Formulario/>
-                </div>
-                <div className="one-half column">
-                  2
-                </div>  
+              {toshowquetion
+              ?
+              (
+                <Question
+                saveBudget= {saveBudget}
+                saveRest= {saveRest}
+                modifyToshowquetion={modifyToshowquetion}
+                />
+              )
+              :
+              (
+                <div className="row">
+                  <div className="one-half column">
+                    <Formulario/>
+                  </div>
+                  <div className="one-half column">
+                    2
+                  </div>  
+               </div>
+              )
+              }
+             
             </div>
-
-            </div>
-            </header>
+        </header>
     </div>
   );
 }
