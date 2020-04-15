@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Error from './Error'
+import shortid from 'shortid'
 
 const Formulario = () => {
     //State para el nombres y el monto del gasto
@@ -14,13 +15,20 @@ const Formulario = () => {
         e.preventDefault();
 
         //validando
-        if (nameegress === "" || quantity < 1 || isNaN(quantity)){
+        if (nameegress.trim() === "" || quantity < 1 || isNaN(quantity)){
             saveError(true);
             return;
         }
         saveError(false);
         //Construir el gasto
 
+        const egress = {
+            nameegress,
+            quantity,
+            id:shortid.generate()
+        }
+
+        console.log(egress);
         //Pasar el gasto al componente principal
 
         //resetear el formulario
@@ -34,7 +42,7 @@ const Formulario = () => {
             <h2>Agrega tus gastos aqui</h2>
 
             {error
-            ? <Error mensaje="Todos los campos son obligatorios y el presupuesto debe ser mayor que 0"/>
+            ? <Error message="Todos los campos son obligatorios y el presupuesto debe ser mayor que 0"/>
             :
             null
             }
