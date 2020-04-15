@@ -1,16 +1,24 @@
 import React, {useState} from 'react'
+import Error from './Error'
 
 const Formulario = () => {
     //State para el nombres y el monto del gasto
     const [ nameegress, setNameEgress ]= useState('');
     const [ quantity, saveQuantity ]= useState(0);
 
+    //State para los errores en los input de gastos
+    const [error, saveError]= useState(false);
+
     //Funcion para agregar el gasto
     const addEgress = e =>{
         e.preventDefault();
 
         //validando
-
+        if (nameegress === "" || quantity < 1 || isNaN(quantity)){
+            saveError(true);
+            return;
+        }
+        saveError(false);
         //Construir el gasto
 
         //Pasar el gasto al componente principal
@@ -19,10 +27,17 @@ const Formulario = () => {
     }
 
     return ( 
-        <form>
+        <form
             onSubmit={addEgress}
+        >
 
             <h2>Agrega tus gastos aqui</h2>
+
+            {error
+            ? <Error mensaje="Todos los campos son obligatorios y el presupuesto debe ser mayor que 0"/>
+            :
+            null
+            }
 
             <div className="campo">
                 <label>Nombre Gasto</label>
