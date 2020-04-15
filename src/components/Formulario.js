@@ -1,8 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Formulario = () => {
+    //State para el nombres y el monto del gasto
+    const [ nameegress, setNameEgress ]= useState('');
+    const [ quantity, saveQuantity ]= useState(0);
+
+    //Funcion para agregar el gasto
+    const addEgress = e =>{
+        e.preventDefault();
+
+        //validando
+
+        //Construir el gasto
+
+        //Pasar el gasto al componente principal
+
+        //resetear el formulario
+    }
+
     return ( 
         <form>
+            onSubmit={addEgress}
+
             <h2>Agrega tus gastos aqui</h2>
 
             <div className="campo">
@@ -11,6 +30,8 @@ const Formulario = () => {
                 type="text"
                 className="u-full-width"
                 placeholder="Ej. Transporte"
+                value={nameegress}
+                onChange={e => setNameEgress(e.target.value)}
                 />
             </div>
 
@@ -20,6 +41,8 @@ const Formulario = () => {
                 type="number"
                 className="u-full-width"
                 placeholder="Ej. 300"
+                value={quantity}
+                onChange={e => saveQuantity( parseInt(e.target.value, 10) )}
                 />
             </div>
 
