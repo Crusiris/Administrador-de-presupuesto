@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Question from './components/Question'
 import Formulario from './components/Formulario'
+import Listado from './components/Listado'
 
 function App() {
 //State del presupuesto
@@ -45,7 +46,9 @@ const addNewEgress = egres=>{
                     />
                   </div>
                   <div className="one-half column">
-                    2
+                    <Listado
+                    egress={egress}
+                    />
                   </div>  
                </div>
               )
