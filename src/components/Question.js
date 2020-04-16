@@ -1,5 +1,6 @@
-import React, {Fragment, useState} from 'react'
-import Error from './Error'
+import React, {Fragment, useState} from 'react';
+import PropTypes from 'prop-types';
+import Error from './Error';
 
 const Question = ({saveBudget, saveRest, modifyToshowquetion}) => {
 
@@ -53,4 +54,10 @@ const Question = ({saveBudget, saveRest, modifyToshowquetion}) => {
     );
 }
  
+Question.propTypes={
+    saveBudget:PropTypes.func.isRequired,
+    saveRest:PropTypes.func.isRequired,
+    modifyToshowquetion:PropTypes.func.isRequired
+}
+
 export default Question;

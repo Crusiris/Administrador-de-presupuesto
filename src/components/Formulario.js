@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import PropTypes from 'prop-types';
 import Error from './Error'
 import shortid from 'shortid'
 
@@ -81,5 +82,10 @@ const Formulario = ({setEgres, setCreateEgres}) => {
         
      );
 }
- 
+
+Formulario.propTypes={
+    setEgres:PropTypes.func.isRequired,
+    setCreateEgres:PropTypes.func.isRequired
+}
+
 export default Formulario;

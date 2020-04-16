@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Gasto = ({egres}) => (
     <li className="gastos">
@@ -8,4 +9,8 @@ const Gasto = ({egres}) => (
             </p>
     </li>
 )
+
+Gasto.propTypes={
+    egres:PropTypes.object.isRequired
+}
 export default Gasto;

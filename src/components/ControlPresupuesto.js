@@ -1,5 +1,8 @@
-import React, {Fragment} from 'react'
-import {reviewBudget} from '../helpers'
+import React, {Fragment} from 'react';
+import PropTypes from 'prop-types';
+import {reviewBudget} from '../helpers';
+
+
 
 const ControlPresupuesto = ({budget, restBudget}) => {
     return ( 
@@ -14,4 +17,8 @@ const ControlPresupuesto = ({budget, restBudget}) => {
      );
 }
  
+ControlPresupuesto.propTypes={
+    budget:PropTypes.number.isRequired,
+    restBudget:PropTypes.number.isRequired
+}
 export default ControlPresupuesto;
