@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Error from './Error'
 import shortid from 'shortid'
 
-const Formulario = ({addNewEgress}) => {
+const Formulario = ({setEgres, setCreateEgres}) => {
     //State para el nombres y el monto del gasto
     const [ nameegress, setNameEgress ]= useState('');
     const [ quantity, saveQuantity ]= useState(0);
@@ -29,7 +29,8 @@ const Formulario = ({addNewEgress}) => {
         }
 
         //Pasar el gasto al componente principal
-        addNewEgress(egres);
+        setEgres(egres);
+        setCreateEgres(true)
         //resetear el formulario
         setNameEgress('')
         saveQuantity('')

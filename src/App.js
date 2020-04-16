@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Question from './components/Question'
 import Formulario from './components/Formulario'
 import Listado from './components/Listado'
+import ControlPresupuesto from './components/ControlPresupuesto'
 
 function App() {
 //State del presupuesto
@@ -12,15 +13,30 @@ const [restBudget, saveRest]= useState(0);
 const[toshowquetion, modifyToshowquetion] = useState(true);
 //State de gastos
 const [egress, setEgress] = useState([]);
+//State de gasto [INDIVIDUAL]
+const [egres, setEgres]=useState({})
+const [createegres, setCreateEgres]=useState(false)
 
-//funcion para agregar nuevo gasto al array
-const addNewEgress = egres=>{
+//UseEffect que actualiza el restante
+useEffect(()=>{
+if(createegres){
+  //agregando el nuevo presupuesto
   setEgress([
     ...egress,
     egres
-
   ])
+
+  //resta del presupuesto actual
+
+  const remainingBudget = restBudget-egres.quantity;
+  saveRest(remainingBudget)
+
+  //reseteando a false
+  setCreateEgres(false);
 }
+
+},[egres, createegres, egress, restBudget])
+
 
   return (
     <div className="container">
@@ -42,12 +58,18 @@ const addNewEgress = egres=>{
                 <div className="row">
                   <div className="one-half column">
                     <Formulario
-                    addNewEgress={addNewEgress}
+                    setEgres={setEgres}
+                    setCreateEgres={setCreateEgres}
                     />
                   </div>
                   <div className="one-half column">
                     <Listado
                     egress={egress}
+                    />
+
+                    <ControlPresupuesto
+                    budget={budget}
+                    restBudget={restBudget}
                     />
                   </div>  
                </div>
