@@ -4,8 +4,7 @@ AppPresupuesto es una aplicacion desarrollada con react, que permite a los usuar
 
 
 ## Layout one
-[Imagen de la aplicacion](https://github.com/Crusiris/Administrador-de-presupuesto/blob/master/public/img/apppresupuesto.png).
+![Imagen de la aplicacion](https://github.com/Crusiris/Administrador-de-presupuesto/blob/master/public/img/apppresupuesto.png).
 
 ## Layout two
-[Imagen de la aplicacion](https://github.com/Crusiris/Administrador-de-presupuesto/blob/master/public/img/apppresupuestos.png).
-
+![Imagen de la aplicacion 2](https://github.com/Crusiris/Administrador-de-presupuesto/blob/master/public/img/apppresupuestos.png).
